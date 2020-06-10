@@ -8,22 +8,29 @@ $(document).ready(function () {
 
     var hours = [];
     var hoursIDs = [];
+    var past = [];
+    var future = [];
     var timeNow = (moment().hour());
-        console.log(timeNow);
+    console.log(timeNow);
     for (var i = now.startOf('day').hour(); i < 24; i++) {
         //Create timeblock and add to the container
-        var timeBlockID = "<div class=time-block id=time-block" + [i] + "></div>";
-        $(".container").append(timeBlockID);
+        var timeBlockRow = `<row class=time-block id=time-block${[i]}></row>`;
+        $(".container").append(timeBlockRow);
         //Add hour to the hours array
         hours.push(i + ":00");
         //Append a div class=hour to the timeblock
-        $("#time-block"+[i]).append("<div class=hour id=time" + [i] + ">" + hours[i] + "</div>");
+        var hourColumn = `<div class=col-3 id=time${[i]}>${hours[i]}</div>`
+        $(`#time-block${[i]}`).append(hourColumn);
+        $(`#time${[i]}`).addClass("hour");
         //Compare the div class=hour value to the current time
-        //var hh = hours[i].match(/^(\d+)[ :,](\d+)$/);
-        //hh = parseInt(hh[1]);
         if (i < timeNow) {
-             console.log(i + " is in the Past.");
-         } else console.log(i + " is now or later.");
+            $(`#time-block${[i]}`).append(`<textarea class = past id=text${[i]}>Past</textarea>`);
+        } else if (i == timeNow) {
+            $(`#time-block${[i]}`).append(`<textarea class = present id=text${[i]}>Present</textarea>`);
+        }
+        else $(`#time-block${[i]}`).append(`<textarea class = future  id=text${[i]}>Future</textarea>`);
+        $(`#text${[i]}`).addClass("col-6");
+
         hoursIDs.push(i);
     }
 });
