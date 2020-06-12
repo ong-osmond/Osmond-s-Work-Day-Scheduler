@@ -21,13 +21,14 @@ $(document).ready(function() {
 
         //Append a div class=hour to the timeblock
         var hour = $("<div>");
-        hour.addClass("col-3");
+        hour.addClass("hour");
         hour.attr("id", "hour-" + i);
         $("#time-block-" + i).append(hour);
         hour.text(hours[i]);
 
         //Append a text area for user to type in or edit a task
         var task = $("<textarea>");
+        task.addClass("time-block");
         $("#time-block-" + i).append(task);
         //Compare the div class=hour value to the current time
         if (i < timeNow) {
@@ -43,6 +44,7 @@ $(document).ready(function() {
 
         //Append buttons for each task
         var button = $("<button>");
+        button.addClass("time-block");
         $("#time-block-" + i).append(button);
         button.text("Save Task");
         button.addClass("saveBtn")
