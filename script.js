@@ -3,12 +3,14 @@ $(document).ready(function() {
 
     //Create timeblocks
     var now = moment();
-    console.log(now.startOf('day').format('hh a'));
+    //console.log(now.startOf('day').format('hh a'));
 
     var hours = [];
+    var timeStart = 9;
+    var timeEnd = 17;
     var timeNow = (moment().hour());
-    console.log(timeNow);
-    for (var i = now.startOf('day').hour(); i < 24; i++) {
+
+    for (var i = timeStart; i <= timeEnd; i++) {
         //Create timeblock and add to the container
         var timeBlockRow = $("<row>");
         timeBlockRow.addClass("time-block");
@@ -24,7 +26,7 @@ $(document).ready(function() {
         hour.addClass("hour");
         hour.attr("id", "hour-" + i);
         $("#time-block-" + i).append(hour);
-        hour.text(hours[i]);
+        hour.text(hours[hours.length - 1]);
 
         //Append a text area for user to type in or edit a task
         var task = $("<textarea>");

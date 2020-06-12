@@ -41,8 +41,9 @@ textarea {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
-    height: 10px;
+    height: 5px;
     text-align: left;
+    line-height: 50px;
 }
 
 .past {
@@ -50,7 +51,7 @@ textarea {
     color: white;
     width: 80%;
     height: 50px;
-    margin-left: 100px;
+    margin-left: 50px;
     height: 50px
 }
 
@@ -58,16 +59,16 @@ textarea {
     background-color: #ff6961;
     color: white;
     width: 80%;
-    margin-left: 100px;
-    height: 50px;
+    margin-left: 50px;
+    height: 50px
 }
 
 .future {
     background-color: #77dd77;
     color: white;
     width: 80%;
-    margin-left: 100px;
-    height: 50px;
+    margin-left: 50px;
+    height: 50px
 }
 
 .saveBtn {
