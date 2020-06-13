@@ -1,21 +1,20 @@
 $(document).ready(function() {
+
+    //Set the current day on the page header using moment.js
     $("#currentDay").text(moment().format('dddd' + ", " + 'MMMM Do'));
 
     //Create timeblocks
-    var now = moment();
-    //console.log(now.startOf('day').format('hh a'));
-
     var hours = [];
     var timeStart = 9;
     var timeEnd = 17;
     var timeNow = (moment().hour());
 
     for (var i = timeStart; i <= timeEnd; i++) {
+
         //Create timeblock and add to the container
         var timeBlockRow = $("<row>");
         timeBlockRow.addClass("time-block");
         timeBlockRow.attr("id", "time-block-" + i);
-
         $(".container").append(timeBlockRow);
 
         //Add hour to the hours array
@@ -49,7 +48,7 @@ $(document).ready(function() {
         button.addClass("time-block");
         $("#time-block-" + i).append(button);
         button.text("Save Task");
-        button.addClass("saveBtn")
+        button.addClass("saveBtn");
         button.attr("button-id", i);
     }
 
@@ -60,9 +59,9 @@ $(document).ready(function() {
         event.preventDefault();
         //Get the task ID of the text field
         var taskID = $(this.previousElementSibling.attributes.task).val();
+        //Get the text field value and save to local storage
         var taskText = $(this.previousElementSibling).val();
         localStorage.setItem("task-ID" + taskID, taskText);
     }
-
 
 });
