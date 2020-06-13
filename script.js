@@ -62,6 +62,7 @@ $(document).ready(function() {
         //Get the text field value and save to local storage
         var taskText = $(this.previousElementSibling).val();
         localStorage.setItem("task-ID" + taskID, taskText);
+        alert("Task saved!");
     }
 
 });
